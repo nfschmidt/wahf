@@ -1,0 +1,25 @@
+{
+	"http-requester": {
+		"command": "python http-requester.py",
+		"input_from": [
+			"urlfinder"
+		],
+		"initial_inputs": [
+			"https://www.kiwi.com/"
+		]
+	},
+	"urlfinder": {
+		"command": "python urlfinder.py kiwi.com",
+		"input_from": [
+			"http-requester"
+		],
+		"output_to_stdout": true
+	},
+	"xssprobe": {
+		"command": "python xssprobe.py",
+		"input_from": [
+			"urlfinder"
+		],
+		"output_to_stdout": true
+	}
+}
