@@ -5,15 +5,16 @@
 			"urlfinder"
 		],
 		"initial_inputs": [
-			"https://www.kiwi.com/"
+			"https://www.example.com",
+			"https://www.example2.com"
 		]
 	},
 	"urlfinder": {
-		"command": "python urlfinder.py kiwi.com",
+		"command": "python urlfinder.py example.com example2.com",
 		"input_from": [
 			"http-requester"
 		],
-		"output_to_stdout": true
+		"output_to_stdout": false
 	},
 	"xssprobe": {
 		"command": "python xssprobe.py",

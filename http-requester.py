@@ -14,7 +14,11 @@ while True:
     else:
         url = in_line
 
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+    except:
+        # log error message
+        continue
 
     output = json.dumps({
         'text': response.text,
