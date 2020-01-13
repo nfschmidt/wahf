@@ -50,14 +50,16 @@ async def probe_url(url):
 
 class QueryParamsProbe:
     def __init__(self, url):
-        self._url = url
+        self._parsed_url = parse.urlparse(url)
+        self._query_params = parse.parse_qs(self._parsed_url.query)
+        self._results = []
 
     async def probe(self):
-        pass
+        if not self._query_params:
+            return
 
     def results(self):
-        yield 'result1'
-        yield 'result2'
+        yield from self._results
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
